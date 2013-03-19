@@ -248,6 +248,9 @@ nav#mini ul li a.padlock {
 article {
   margin: 30px 0;
 }
+article.mines {
+  margin: 0 0 30px 0;
+}
 article.white h1 {
   font-family: Calibri, "Droid Sans";
   text-transform: uppercase;
