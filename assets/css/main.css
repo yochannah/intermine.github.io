@@ -74,8 +74,9 @@ footer{padding:30px 0;background:#f0f1f0;color:#3a4676;}
 footer p{margin:0;font-size:13px;text-align:right}
 footer li{font-size:13px}
 footer img{margin:0 0 20px 0;display:block}
-footer article#publications{margin:0;}
-footer article#publications h1{font-family:Calibri,"Droid Sans",sans-serif;text-transform:uppercase;color:#3a4676;font-weight:400;font-size:21px;margin-bottom:15px}
-footer article#publications ul li:not(:last-child){margin-bottom:15px}
-footer article#publications ul li a{color:#5162a6}
-footer article#publications ul li span{display:block;color:#909dcd;font-size:11px}
+footer #publications{margin:0;}
+footer #publications h1{font-family:Calibri,"Droid Sans",sans-serif;text-transform:uppercase;color:#3a4676;font-weight:400;font-size:21px;margin-bottom:15px}
+footer #publications ul{margin:0;}
+footer #publications ul li:not(:last-child){margin-bottom:15px}
+footer #publications ul li a{color:#5162a6}
+footer #publications ul li span{display:block;color:#909dcd;font-size:11px}

@@ -176,7 +176,7 @@ layout: html
 
 <div id="dirt">
     <div class="row">
-        {% for post in site.posts | limit:3 %}
+        {% for post in site.posts | limit: 3 %}
         <article class="gray large-4 small-12 columns">
             <h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
             <span class="sub"><time datetime="{{ post.date | date_to_xmlschema}}" method="ago"></time> by {{ post.author | default: Radek }}</span>
@@ -195,34 +195,11 @@ layout: html
             <h1>Recent InterMine publications</h1>
 
             <ul>
-                    <li><a target="_23652793" href="http://www.ncbi.nlm.nih.gov/pubmed/23652793">InterMOD: integrated data and tools for the unification of model organism research.</a>
-                    <span>Sullivan J, Karra K, Moxon S A, Vallejos A, Motenko H, et al.</span>
+                {% for pub in site.data.publications | limit: 5 %}
+                <li><a target="_{{ pub.pmid }}" href="http://www.ncbi.nlm.nih.gov/pubmed/{{ pub.pmid }}">{{ pub.title }}</a>
+                    <span>{{ pub.authors }}</span>
                 </li>
-                <li><a target="_23396302" href="http://www.ncbi.nlm.nih.gov/pubmed/23396302">The YeastGenome app: the Saccharomyces Genome Database at your fingertips</a>
-                    <span>Wong ED, Karra K, Hitz BC, Hong EL, Cherry JM</span>
-                </li>
-                <li><a target="_23023984" href="http://www.ncbi.nlm.nih.gov/pubmed/23023984">InterMine: a
-                    flexible data warehouse system for the integration and analysis of heterogeneous
-                    biological data</a>
-                    <span>Smith RN, Aleksic J, Butano D, Carr A, Contrino S, Hu F, Lyne M, Lyne R,
-                        Kalderimis A, Rutherford K, Stepan R, Sullivan J, Wakeling M, Watkins X, and
-                        Micklem G
-                    </span>
-                </li>
-                <li><a target="_PMC3308152" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3308152/">
-                    YeastMine - an integrated data warehouse for Saccharomyces cerevisiae data as a
-                    multipurpose tool-kit</a>
-                    <span>Balakrishnan R, Park J, Karra K, Hitz BC, Binkley G, Hong EL, Sullivan J,
-                        Micklem G, and Michael JC
-                    </span>
-                </li>
-                <li><a target="_PMC3245176" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245176/">
-                    modMine: flexible access to modENCODE data</a>
-                    <span>Contrino S, Smith RN, Butano D, Carr A, Hu F, Lyne R, Rutherford K,
-                        Kalderimis A, Sullivan J, Carbon S, Kephart ET, Lloyd P, Stinson EO, Washington NL,
-                        Perry MD, Ruzanov P, Zha Z, Lewis SE, Stein LD, and Micklem G
-                    </span>
-                </li>
+                {% endfor %}
             </ul>
         </article>
 
