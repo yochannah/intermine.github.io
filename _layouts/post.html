@@ -1,0 +1,50 @@
+---
+layout: html
+---
+
+<div class="row">
+    <div class="small-12 columns">
+        <nav id="mini" class="right">
+            <ul>
+                <li><a target="_github" href="https://github.com/intermine/intermine">GitHub</a></li>
+                <li><a href="http://intermine.readthedocs.org/en/latest/support/mailing-list/">Mailing list</a></li>
+                <li><a class="padlock" href="https://readthedocs.org/projects/intermine/">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div id="hero">
+    <div class="row">
+        <div class="large-5 small-12 columns">
+            <a id="logo" href="{{ site.baseurl }}/" title="Home"></a>
+        </div>
+
+        <div class="large-7 small-12 columns">
+            <nav id="main" class="right">
+                <ul>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/about/intermine/">Features</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/">Documentation</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/git/">Download</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/about/contact-us/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <article class="small-12 columns white">
+        <h1>{{ page.title }}</h1>
+        
+        {{ content }}
+
+        <h2>Possibly related</h2>
+
+        <ul>
+        {% for related in site.related_posts | limit: 3 %}
+            <li><a href="{{ related.url | prepend: site.baseurl }}">{{ related.title }}</a></li>
+        {% endfor %}
+        </ul>
+    </article>
+</div>

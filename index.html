@@ -36,8 +36,6 @@ layout: html
         });
     });
 </script>
-</head>
-<body>
 <div class="row">
     <div class="small-12 columns">
         <nav id="mini" class="right">
@@ -188,28 +186,3 @@ layout: html
         {% endfor %}
     </div>
 </div>
-
-<footer>
-    <div class="row">
-        <article id="publications" class="small-8 columns">
-            <h1>Recent InterMine publications</h1>
-
-            <ul>
-                {% for pub in site.data.publications | limit: 5 %}
-                <li><a target="_{{ pub.pmid }}" href="http://www.ncbi.nlm.nih.gov/pubmed/{{ pub.pmid }}">{{ pub.title }}</a>
-                    <span>{{ pub.authors }}</span>
-                </li>
-                {% endfor %}
-            </ul>
-        </article>
-
-        <div class="small-4 columns">
-            <img class="right" src="{{ site.baseurl }}/assets/img/wellcome-blue.png" />
-            <img class="right" src="{{ site.baseurl }}/assets/img/cambridge-blue.png" />
-            <p class="right">
-                InterMine, Systems Biology Centre,<br />
-                Tennis Court Road, Cambridge CB2 1QR, UK
-            </p>
-        </div>
-    </div>
-</footer>

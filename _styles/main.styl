@@ -3,8 +3,12 @@
 $main-font = Calibri, "Droid Sans", sans-serif
 $secondary-font = "Times New Roman", serif
 
+body
+    background: #f0f1f0
+
 ul
     list-style-type: none
+    margin: 0
 
     li
         display: inline-block
@@ -14,6 +18,9 @@ h1
 
 p
     font-size: 15px
+
+#content
+    background: #FFF
 
 nav#mini
     ul
@@ -257,14 +264,31 @@ article
     &.mines
         margin: 0 0 30px 0
 
+        ul
+            margin: 0
+
     &.white
-        h1
+        h1, h2, h3, h4, h5
             font-family: $main-font
             text-transform: uppercase
             color: #827E7F
             font-weight: 400
-            font-size: 21px
             margin-bottom: 25px
+        
+        h1
+            font-size: 21px
+
+        h2
+            font-size: 19px
+
+        h3
+            font-size: 17px
+
+        h4
+            font-size: 15px
+        
+        h5
+            font-size: 13px
 
         p
             color: #827E7F
@@ -287,6 +311,10 @@ article
             color: #827E7F
             display: block
 
+        .meta
+            color: #827E7F
+            margin-bottom: 20px
+    
     &.gray
         h1
             font-family: $main-font
@@ -398,8 +426,6 @@ footer
             margin-bottom: 15px
 
         ul
-            margin: 0
-
             li
                 &:not(:last-child)
                     margin-bottom: 15px
