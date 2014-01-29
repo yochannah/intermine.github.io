@@ -1,52 +1,53 @@
 -
-      slug: 'cambridge'
+      slug: cambridge
       desc: 'University of Cambridge, Department of Genetics, Systems Biology Centre'
-      url: 'http://www.sysbiol.cam.ac.uk/'
+      url:  http://www.sysbiol.cam.ac.uk/
 -
-      slug: 'jax'
+      slug: jax
       desc: 'The Jackson Laboratory, Mouse Genome Informatics'
-      url: 'http://www.informatics.jax.org/'
+      url:  http://www.informatics.jax.org/
 -
-      slug: 'oicr'
+      slug: oicr
       desc: 'Ontario Institute for Cancer Research'
-      url: 'http://oicr.on.ca/'
+      url:  http://oicr.on.ca/
 -
-      slug: 'wisconsin'
+      slug: wisconsin
       desc: 'Medical College of Wisconsin'
-      url: 'http://bbc.mcw.edu/'
+      url:  http://bbc.mcw.edu/
 -
-      slug: 'galaxy'
+      slug: galaxy
       desc: 'Galaxy Project'
-      url: 'http://galaxyproject.org/'
+      url:  http://galaxyproject.org/
 -
-      slug: 'mrc'
+      slug: mrc
       desc: 'Medical Research Council, Mitochondrial Biology Unit'
-      url: 'http://www.mrc-mbu.cam.ac.uk/faculty-and-research/mitominer'
+      url:  http://www.mrc-mbu.cam.ac.uk/faculty-and-research/mitominer
 -
-      slug: 'nibio'
+      slug: nibio
       desc: 'National Institute of Biomedical Innovation, Mizuguchi Laboratory'
-      url: 'http://mizuguchilab.org/'
+      url:  http://mizuguchilab.org/
+      img:  nibio.jpg
 -
-      slug: 'gmod'
+      slug: gmod
       desc: 'GMOD, the Generic Model Organism Database project'
-      url: 'http://gmod.org/wiki/Main_Page'
+      url:  http://gmod.org/wiki/Main_Page
 -
-      slug: 'go'
+      slug: go
       desc: 'Gene Ontology'
-      url: 'http://www.geneontology.org/'
+      url:  http://www.geneontology.org/
 -
-      slug: 'kaust'
+      slug: kaust
       desc: 'King Abdullah University of Science and Technology'
-      url: 'http://www.kaust.edu.sa/'
+      url:  http://www.kaust.edu.sa/
 -
-      slug: 'oregon'
+      slug: oregon
       desc: 'University of Oregon'
-      url: 'https://www.uoregon.edu/'
+      url:  https://www.uoregon.edu/
 -
-      slug: 'stanford'
+      slug: stanford
       desc: 'Stanford University, Department of Genetics'
-      url: 'http://genetics.stanford.edu/'
+      url:  http://genetics.stanford.edu/
 -
-      slug: 'genozymes'
+      slug: genozymes
       desc: 'Genozymes'
-      url: 'http://www.fungalgenomics.ca/wiki/Main_Page'
+      url:  http://www.fungalgenomics.ca/wiki/Main_Page

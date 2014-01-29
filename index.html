@@ -5,40 +5,23 @@ layout: html
 <script>
     // Preload klout images.
     (function() {
-        preloads = [ 'cambridge.png', 'galaxy.png', 'jax.png', 'oicr.png', 'mrc.png', 'stanford.png', 'wisconsin.png', 'nibio.jpg',
-            'gmod.png', 'go.png', 'kaust.png', 'oregon.png', 'genozymes.png' ];
-        var tempImg = [];
-
-        for (var x = 0; x < preloads.length; x++) {
-            tempImg[x] = new Image();
-            tempImg[x].src = '{{ site.baseurl }}/assets/img/klout/' + preloads[x];
-        }
+        {% for place in site.data.klout %}
+        var {{ place.slug }} = new Image();
+        {% if place.img %}
+        {{ place.slug }}.src = "{{ site.baseurl }}/assets/img/klout/{{ place.img }}";
+        {% else %}
+        {{ place.slug }}.src = "{{ site.baseurl }}/assets/img/klout/{{ place.slug }}.png";
+        {% endif %}
+        {% endfor %}
     })();
 
     $(function() {
         // Klout peeps.
-        var peeps = [
+        $(knuthShuffle([
         {% for place in site.data.klout %}
             [ "{{ place.slug }}", "{{ place.desc }}", "{{ place.url }}" ]{% unless forloop.last %},{% endunless %}
         {% endfor %}
-        ];
-
-        // Seed klout randomly.
-        (function(arr) {
-            var i = arr.length;
-            if ( i == 0 ) return false;
-            while ( --i ) {
-                var j = Math.floor( Math.random() * ( i + 1 ) );
-                var tempi = arr[i];
-                var tempj = arr[j];
-                arr[i] = tempj;
-                arr[j] = tempi;
-            }
-            return peeps;
-        })(peeps);
-
-        $(peeps).each(function(i, el) {
-            var li;
+        ])).each(function(i, el) {
             $('#klout ul').append(
                 $('<li/>').append($('<a/>', {
                     'class': el[0],
@@ -47,12 +30,6 @@ layout: html
                     'target': '_' + el[0]
                 }))
             );
-        });
-
-        // Onclick klout more.
-        var a = ($('#klout a.more')).click(function() {
-            a.remove();
-            $("#klout ul li").show();
         });
     });
 </script>
