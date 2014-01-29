@@ -23,12 +23,15 @@ layout: html
         {% endfor %}
         ])).each(function(i, el) {
             $('#klout ul').append(
-                $('<li/>').append($('<a/>', {
-                    'class': el[0],
-                    'text': el[1],
-                    'href': el[2],
-                    'target': '_' + el[0]
-                }))
+                $('<li/>').append(
+                    $('<a/>', {
+                        'class': el[0],
+                        'text':  el[1],
+                        'title': el[1],
+                        'href':  el[2],
+                        'target': '_' + el[0]
+                    })
+                )
             );
         });
     });
@@ -173,37 +176,16 @@ layout: html
 
 <div id="dirt">
     <div class="row">
+        {% for post in site.posts | limit:3 %}
         <article class="gray large-4 small-12 columns">
-            <h1>Getting started</h1>
-            <span class="sub">Yesterday by Julie</span>
-            <img src="{{ site.baseurl }}/assets/img/circular/code.png" />
-            <p>Setting up your own InterMine instance is easy. Check out our
-                <a href="http://intermine.readthedocs.org/en/latest/get-started/tutorial/">step-by-step guide</a> to creating
-                your own Mine, loading and processing datasets, and using the web app to query &amp;
-                export the data. You can also try out an existing InterMine instance on the <a href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">Amazon cloud</a>.</p>
+            <h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+            <span class="sub"><time datetime="{{ post.date | date_to_xmlschema}}" method="ago"></time> by {{ post.author | default: Radek }}</span>
+            {% if post.image %}
+            <img src="{{ site.baseurl }}/assets/img/circular/{{ post.image }}" />
+            {% endif %}
+            {{ post.content }}
         </article>
-
-        <article class="gray large-4 small-12 columns">
-            <h1>Embed InterMine data or tools anywhere</h1>
-            <span class="sub">Two weeks ago by Sergio</span>
-            <img src="{{ site.baseurl }}/assets/img/circular/countryside.png" />
-            <p>You can embed analysis tools, query results and lots more onto any HTML page. You can get the data from your mine or any InterMine. See <a href="http://intermine-report-widgets-service.labs.intermine.org/" target="_new">here</a> for examples.</p>
-        </article>
-
-        <article class="gray large-4 small-12 columns">
-            <h1>Using web services</h1>
-            <span class="sub">October 1, 2012 by Alex</span>
-            <img src="{{ site.baseurl }}/assets/img/circular/bridge.png" />
-            <p>The InterMine web services expose our complete API, and can be used for automating
-                workflows, as well as enabling the development of external applications. While any
-                language that can parse HTTP can be used, we provide client libraries in 5 programming
-                languages -
-                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Python</a>,
-                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Perl</a>,
-                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Java</a>,
-                <a target="_blank" href="http://intermine.readthedocs.org/en/latest/web-services/">JavaScript</a> and
-                <a target="_blank" href="http://rubygems.org/gems/intermine">Ruby</a>.</p>
-        </article>
+        {% endfor %}
     </div>
 </div>
 

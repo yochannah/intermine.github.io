@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/vendor.css" type="text/css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" type="text/css">
     <script src="{{ site.baseurl }}/assets/js/vendor.js" type="text/javascript"></script>
+    <script>
+    $(function() {
+        $('time[method]').each(function() {
+            var el = $(this),
+                datetime = moment(el.attr('datetime'));
+            
+            switch(el.attr('method')) {
+                // Short date format.
+                case 'format':
+                    el
+                    .text(datetime.format("MMM Do"))
+                    .prop('title', datetime.format("Do MMMM YYYY"))
+                    .removeAttr('method');
+                    break;
+                // Time ago.
+                case 'ago':
+                    el
+                    .text(datetime.fromNow())
+                    .prop('title', datetime.format("Do MMMM YYYY"))
+                    .removeAttr('method');
+                    break;
+            }
+        });
+    });
+    </script>
 </head>
 <body>
     {{ content }}
