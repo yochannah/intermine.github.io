@@ -26,7 +26,7 @@ $ gem install jekyll
 Watch & serve for local development:
 
 ```bash
-$ jekyll serve --watch --drafts
+$ jekyll serve --watch --drafts --baseurl=
 ```
 
 Build:

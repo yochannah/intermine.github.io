@@ -8,7 +8,7 @@ future:      true
 # Site url.
 url:         http://intermine.github.io/intermine.org/
 # Prefix when serving from a folder.
-baseurl:     ''
+baseurl:     '/intermine.org'
 # Ignore Node.js stuff.
 exclude:     [ node_modules, vendor, Gruntfile.coffee, bower.json, package.json, README.md ]
 
