@@ -1,300 +1,292 @@
-<!doctype html>
-<head>
-    <meta charset="utf-8" />
+---
+layout: html
+---
 
-    <title>InterMine | University of Cambridge</title>
+<script>
+    // Preload klout images.
+    (function() {
+        preloads = [ 'cambridge.png', 'galaxy.png', 'jax.png', 'oicr.png', 'mrc.png', 'stanford.png', 'wisconsin.png', 'nibio.jpg',
+            'gmod.png', 'go.png', 'kaust.png', 'oregon.png', 'genozymes.png' ];
+        var tempImg = [];
 
-    <link rel="stylesheet" href="css/foundation3.css">
-    <link rel="stylesheet" href="css/style.css">
+        for (var x = 0; x < preloads.length; x++) {
+            tempImg[x] = new Image();
+            tempImg[x].src = '{{ site.baseurl }}/assets/img/klout/' + preloads[x];
+        }
+    })();
 
-    <script src="js/jquery-1.8.2.min.js"></script>
-    <script>
-        // Preload klout images.
-        (function() {
-            preloads = [ 'cambridge.png', 'galaxy.png', 'jax.png', 'oicr.png', 'mrc.png', 'stanford.png', 'wisconsin.png', 'nibio.jpg',
-                'gmod.png', 'go.png', 'kaust.png', 'oregon.png', 'genozymes.png' ];
-            var tempImg = [];
+    $(function() {
+        // Klout peeps.
+        var peeps = [
+            [ 'cambridge', 'University of Cambridge, Department of Genetics, Systems Biology Centre', 'http://www.sysbiol.cam.ac.uk/' ],
+            [ 'jax', 'The Jackson Laboratory, Mouse Genome Informatics', 'http://www.informatics.jax.org/' ],
+            [ 'oicr', 'Ontario Institute for Cancer Research', 'http://oicr.on.ca/' ],
+            [ 'wisconsin', 'Medical College of Wisconsin', 'http://bbc.mcw.edu/' ],
+            [ 'galaxy', 'Galaxy Project', 'http://galaxyproject.org/' ],
+            [ 'mrc', 'Medical Research Council, Mitochondrial Biology Unit', 'http://www.mrc-mbu.cam.ac.uk/faculty-and-research/mitominer' ],
+            [ 'nibio', 'National Institute of Biomedical Innovation, Mizuguchi Laboratory', 'http://mizuguchilab.org/' ],
+            [ 'gmod', 'GMOD, the Generic Model Organism Database project', 'http://gmod.org/wiki/Main_Page' ],
+            [ 'go', 'Gene Ontology', 'http://www.geneontology.org/' ],
+            [ 'kaust', 'King Abdullah University of Science and Technology', 'http://www.kaust.edu.sa/' ],
+            [ 'oregon', 'University of Oregon', 'https://www.uoregon.edu/' ],
+            [ 'stanford', 'Stanford University, Department of Genetics', 'http://genetics.stanford.edu/' ],
+            [ 'genozymes', 'Genozymes', 'http://www.fungalgenomics.ca/wiki/Main_Page' ]
+        ];
 
-            for(var x = 0; x < preloads.length; x++) {
-                tempImg[x] = new Image();
-                tempImg[x].src = 'img/klout/' + preloads[x];
+        // Seed klout randomly.
+        (function(arr) {
+            var i = arr.length;
+            if ( i == 0 ) return false;
+            while ( --i ) {
+                var j = Math.floor( Math.random() * ( i + 1 ) );
+                var tempi = arr[i];
+                var tempj = arr[j];
+                arr[i] = tempj;
+                arr[j] = tempi;
             }
-        })();
+            return peeps;
+        })(peeps);
 
-        $(function() {
-            // Klout peeps.
-            var peeps = [
-                [ 'cambridge', 'University of Cambridge, Department of Genetics, Systems Biology Centre', 'http://www.sysbiol.cam.ac.uk/' ],
-                [ 'jax', 'The Jackson Laboratory, Mouse Genome Informatics', 'http://www.informatics.jax.org/' ],
-                [ 'oicr', 'Ontario Institute for Cancer Research', 'http://oicr.on.ca/' ],
-                [ 'wisconsin', 'Medical College of Wisconsin', 'http://bbc.mcw.edu/' ],
-                [ 'galaxy', 'Galaxy Project', 'http://galaxyproject.org/' ],
-                [ 'mrc', 'Medical Research Council, Mitochondrial Biology Unit', 'http://www.mrc-mbu.cam.ac.uk/faculty-and-research/mitominer' ],
-                [ 'nibio', 'National Institute of Biomedical Innovation, Mizuguchi Laboratory', 'http://mizuguchilab.org/' ],
-                [ 'gmod', 'GMOD, the Generic Model Organism Database project', 'http://gmod.org/wiki/Main_Page' ],
-                [ 'go', 'Gene Ontology', 'http://www.geneontology.org/' ],
-                [ 'kaust', 'King Abdullah University of Science and Technology', 'http://www.kaust.edu.sa/' ],
-                [ 'oregon', 'University of Oregon', 'https://www.uoregon.edu/' ],
-                [ 'stanford', 'Stanford University, Department of Genetics', 'http://genetics.stanford.edu/' ],
-                [ 'genozymes', 'Genozymes', 'http://www.fungalgenomics.ca/wiki/Main_Page' ]
-            ];
-
-            // Seed klout randomly.
-            (function(arr) {
-                var i = arr.length;
-                if ( i == 0 ) return false;
-                while ( --i ) {
-                    var j = Math.floor( Math.random() * ( i + 1 ) );
-                    var tempi = arr[i];
-                    var tempj = arr[j];
-                    arr[i] = tempj;
-                    arr[j] = tempi;
-                }
-                return peeps;
-            })(peeps);
-
-            $(peeps).each(function(i, el) {
-                var li;
-                $('#klout ul').append(
-                    li = $('<li/>').append($('<a/>', {
-                        'class': el[0],
-                        'text': el[1],
-                        'href': el[2],
-                        'target': '_blank'
-                    }))
-                );
-                // Hide elements on the second+ row.
-                //if (li.position().top !== 0) {
-                //    li.hide();
-                //}
-            });
-
-            // Onclick klout more.
-            var a = ($('#klout a.more')).click(function() {
-                a.remove();
-                $("#klout ul li").show();
-            });
+        $(peeps).each(function(i, el) {
+            var li;
+            $('#klout ul').append(
+                li = $('<li/>').append($('<a/>', {
+                    'class': el[0],
+                    'text': el[1],
+                    'href': el[2],
+                    'target': '_blank'
+                }))
+            );
+            // Hide elements on the second+ row.
+            //if (li.position().top !== 0) {
+            //    li.hide();
+            //}
         });
-    </script>
+
+        // Onclick klout more.
+        var a = ($('#klout a.more')).click(function() {
+            a.remove();
+            $("#klout ul li").show();
+        });
+    });
+</script>
 </head>
 <body>
+<div class="row">
+    <div class="small-12 columns">
+        <nav id="mini" class="right">
+            <ul>
+                <li><a target="_blank" href="https://github.com/intermine/intermine">GitHub</a></li>
+                <li><a href="http://intermine.readthedocs.org/en/latest/support/mailing-list/">Mailing list</a></li>
+                <li><a class="padlock" href="https://readthedocs.org/projects/intermine/">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div id="hero">
     <div class="row">
-        <div class="twelve columns">
-            <nav id="mini" class="right">
+        <div class="large-5 small-12 columns">
+            <div id="logo"></div>
+        </div>
+
+        <div class="large-7 small-12 columns">
+            <nav id="main" class="right">
                 <ul>
-                    <li><a target="_blank" href="https://github.com/intermine/intermine">GitHub</a></li>
-                    <li><a href="http://intermine.readthedocs.org/en/latest/support/mailing-list/">Mailing list</a></li>
-                    <li><a class="padlock" href="https://readthedocs.org/projects/intermine/">Login</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/about/intermine/">Features</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/">Documentation</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/git/">Download</a></li>
+                    <li><a href="http://intermine.readthedocs.org/en/latest/about/contact-us/">Contact</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
 
-    <div id="hero">
-        <div class="row">
-            <div class="five columns">
-                <div id="logo"></div>
+        <hr />
+
+        <div class="large-5 small-12 columns">
+            <!--
+            <div class="browser">
+                <span>flymine.org</span>
+                <img src="img/flymine.png" />
             </div>
+            -->
 
-            <div class="seven columns">
-                <nav id="main" class="right">
-                    <ul>
-                        <li><a href="http://intermine.readthedocs.org/en/latest/about/intermine/">Features</a></li>
-                        <li><a href="http://intermine.readthedocs.org/en/latest/">Documentation</a></li>
-                        <li><a href="http://intermine.readthedocs.org/en/latest/git/">Download</a></li>
-                        <li><a href="http://intermine.readthedocs.org/en/latest/about/contact-us/">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+           <object id="scPlayer"  width="600" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" >
+                <param name="movie" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#859E02" />
+                <param name="flashVars" value="thumb=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/FirstFrame.jpg&containerwidth=640&containerheight=480&xmp=sc.xmp&content=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/LighteningOverview3.mp4.mp4&blurover=false" />
+                <param name="allowFullScreen" value="true" />
+                <param name="scale" value="showall" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="base" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/" />
+                <iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/embed" height="600" width="600" ></iframe>
+            </object>
+        </div>
+        <div class="small-7 columns">
+            <h1>Biological data warehouse</h1>
+            <p class="important">InterMine is an open source data warehouse built specifically for
+                the integration and analysis of complex biological data. Developed by the Micklem
+                lab at the University of Cambridge, InterMine enables the creation of biological
+                databases accessed by sophisticated web query tools. Parsers are provided for
+                integrating data from many common biological data sources and formats, and there is
+                a framework for adding your own data. InterMine includes an attractive, user-friendly
+                web interface that works 'out of the box' and can be easily customised for your
+                specific needs, as well as a powerful, scriptable web-service API to allow
+                programmatic access to your data.</p>
 
-            <hr />
-
-            <div class="five columns">
-                <!--
-                <div class="browser">
-                    <span>flymine.org</span>
-                    <img src="img/flymine.png" />
-                </div>
-                -->
-
-               <object id="scPlayer"  width="600" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" >
-                    <param name="movie" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" />
-                    <param name="quality" value="high" />
-                    <param name="bgcolor" value="#859E02" />
-                    <param name="flashVars" value="thumb=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/FirstFrame.jpg&containerwidth=640&containerheight=480&xmp=sc.xmp&content=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/LighteningOverview3.mp4.mp4&blurover=false" />
-                    <param name="allowFullScreen" value="true" />
-                    <param name="scale" value="showall" />
-                    <param name="allowScriptAccess" value="always" />
-                    <param name="base" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/" />
-                    <iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/embed" height="600" width="600" ></iframe>
-                </object>
-            </div>
-            <div class="seven columns">
-                <h1>Biological data warehouse</h1>
-                <p class="important">InterMine is an open source data warehouse built specifically for
-                    the integration and analysis of complex biological data. Developed by the Micklem
-                    lab at the University of Cambridge, InterMine enables the creation of biological
-                    databases accessed by sophisticated web query tools. Parsers are provided for
-                    integrating data from many common biological data sources and formats, and there is
-                    a framework for adding your own data. InterMine includes an attractive, user-friendly
-                    web interface that works 'out of the box' and can be easily customised for your
-                    specific needs, as well as a powerful, scriptable web-service API to allow
-                    programmatic access to your data.</p>
-
-                <div class="links">
-                    <a class="git left" target="_blank" href="http://intermine.readthedocs.org/en/latest/git/">git download</a>
-                    <a class="started left" href="http://intermine.readthedocs.org/en/latest/get-started/tutorial/">getting started</a>
-                </div>
-            </div>
-            
-            <hr />
-
-            <div id="klout" class="twelve columns">
-                <ul></ul>
-                <!-- temporarily remove "more" button. put back when we have more than 2 lines of logos -->
-                <!-- <a class="more">More</a> -->
+            <div class="links">
+                <a class="git left" target="_blank" href="http://intermine.readthedocs.org/en/latest/git/">git download</a>
+                <a class="started left" href="http://intermine.readthedocs.org/en/latest/get-started/tutorial/">getting started</a>
             </div>
         </div>
-    </div>
+        
+        <hr />
 
-    <div class="row">
-        <article class="white six columns">
-            <h1>Complex data integration</h1>
-            <p>InterMine was developed with the complexity of biological data in mind. The data model is
-                flexible and extensible, and a range of data parsers is provided to facilitate the data
-                loading. A sophisticated identifier resolution system updates all identifiers to the most
-                current version using a priority system, and multiple post-processing checks ensure the
-                consistency of the data integration.</p>
-        </article>
-
-        <article class="white six columns">
-            <h1>Fast and flexible querying</h1>
-            <p>Complex queries can be constructed flexibly to mine across the integrated datasets,
-                enabling researchers to answer sophisticated biological questions. The query optimisation
-                method is constructed around the use of precomputed tables, meaning that the data schema
-                does not need to be denormalized to optimise query speed. A user's query workflow can also
-                be automated using InterMine web services.</p>
-        </article>
-
-        <article class="white twelve columns mines">
-            <h1>Existing mines</h1>
-            <p>A number of different data warehouses powered by InterMine already exist. These include:</p>
-            <div class="row">
-                <div class="four columns">
-                    <ul>
-                        <li><a target="_blank" href="http://www.flymine.org">FlyMine</a> - <em>Drosophila</em> genomics</li>
-                        <li><a target="_blank" href="http://intermine.modencode.org">modMine</a> - fly and worm modENCODE data</li>
-                        <li><a target="_blank" href="http://www.mousemine.org">MouseMine</a> - at MGI</li>
-                        <li><a target="_blank" href="http://ratmine.mcw.edu">RatMine</a> - at RGD</li>
-                    </ul>
-                </div>
-                <div class="four columns">
-                    <ul>
-                        <li><a target="_blank" href="http://www.wormbase.org/tools/wormmine">WormMine</a> - at WormBase</li>
-                        <li><a target="_blank" href="http://yeastmine.yeastgenome.org">YeastMine</a> - at SGD</li>
-                        <li><a target="_blank" href="http://zmine.zfin.org/zebrafishmine">ZFINMine</a> - at ZFIN</li>
-                        
-                    </ul>
-                </div>
-                <div class="four columns">
-                    <ul>
-                        <li><a target="_blank" href="http://targetmine.nibio.go.jp">TargetMine</a> - drug target discovery</li>
-                        <li><a target="_blank" href="http://www.flytf.org">FlyTF.org</a> - <i>Drosophila</i> transcription factors</li>
-                        <li><a target="_blank" href="http://mitominer.mrc-mbu.cam.ac.uk">MitoMiner</a> - proteomic data for mitochondria</li>
-                        <li><a target="_blank" href="http://www.metabolicmine.org">metabolicMine</a> - human, mouse and rat</li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-
-        <article class="quote twelve columns">
-            <blockquote cite="https://twitter.com/intermineorg">InterMine is on the cloud! See <a target="_blank" href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">here</a> for details</blockquote>
-            <p>Follow us on the <a target="_blank" href="https://twitter.com/intermineorg/">InterMine twitter feed</a>.</p>
-        </article>
-    </div>
-
-    <div id="dirt">
-        <div class="row">
-            <article class="gray four columns">
-                <h1>Getting started</h1>
-                <span class="sub">Yesterday by Julie</span>
-                <img src="img/circular/code.png" />
-                <p>Setting up your own InterMine instance is easy. Check out our
-                    <a href="http://intermine.readthedocs.org/en/latest/get-started/tutorial/">step-by-step guide</a> to creating
-                    your own Mine, loading and processing datasets, and using the web app to query &amp;
-                    export the data. You can also try out an existing InterMine instance on the <a href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">Amazon cloud</a>.</p>
-            </article>
-
-            <article class="gray four columns">
-                <h1>Embed InterMine data or tools anywhere</h1>
-                <span class="sub">Two weeks ago by Sergio</span>
-                <img src="img/circular/countryside.png" />
-                <p>You can embed analysis tools, query results and lots more onto any HTML page. You can get the data from your mine or any InterMine. See <a href="http://intermine-report-widgets-service.labs.intermine.org/" target="_new">here</a> for examples.</p>
-            </article>
-
-            <article class="gray four columns">
-                <h1>Using web services</h1>
-                <span class="sub">October 1, 2012 by Alex</span>
-                <img src="img/circular/bridge.png" />
-                <p>The InterMine web services expose our complete API, and can be used for automating
-                    workflows, as well as enabling the development of external applications. While any
-                    language that can parse HTTP can be used, we provide client libraries in 5 programming
-                    languages -
-                    <a href="http://intermine.readthedocs.org/en/latest/web-services/">Python</a>,
-                    <a href="http://intermine.readthedocs.org/en/latest/web-services/">Perl</a>,
-                    <a href="http://intermine.readthedocs.org/en/latest/web-services/">Java</a>,
-                    <a target="_blank" href="http://intermine.readthedocs.org/en/latest/web-services/">JavaScript</a> and
-                    <a target="_blank" href="http://rubygems.org/gems/intermine">Ruby</a>.</p>
-            </article>
+        <div id="klout" class="small-12 columns">
+            <ul></ul>
+            <!-- temporarily remove "more" button. put back when we have more than 2 lines of logos -->
+            <!-- <a class="more">More</a> -->
         </div>
     </div>
+</div>
 
-    <footer>
+<div class="row">
+    <article class="white large-6 small-12 columns">
+        <h1>Complex data integration</h1>
+        <p>InterMine was developed with the complexity of biological data in mind. The data model is
+            flexible and extensible, and a range of data parsers is provided to facilitate the data
+            loading. A sophisticated identifier resolution system updates all identifiers to the most
+            current version using a priority system, and multiple post-processing checks ensure the
+            consistency of the data integration.</p>
+    </article>
+
+    <article class="white large-6 small-12 columns">
+        <h1>Fast and flexible querying</h1>
+        <p>Complex queries can be constructed flexibly to mine across the integrated datasets,
+            enabling researchers to answer sophisticated biological questions. The query optimisation
+            method is constructed around the use of precomputed tables, meaning that the data schema
+            does not need to be denormalized to optimise query speed. A user's query workflow can also
+            be automated using InterMine web services.</p>
+    </article>
+
+    <article class="white small-12 columns mines">
+        <h1>Existing mines</h1>
+        <p>A number of different data warehouses powered by InterMine already exist. These include:</p>
         <div class="row">
-            <article id="publications" class="eight columns">
-                <h1>Recent InterMine publications</h1>
-
+            <div class="large-4 small-12 columns">
                 <ul>
-                        <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23652793">InterMOD: integrated data and tools for the unification of model organism research.</a>
-                        <span>Sullivan J, Karra K, Moxon S A, Vallejos A, Motenko H, et al.</span>
-                    </li>
-                    <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23396302">The YeastGenome app: the Saccharomyces Genome Database at your fingertips</a>
-                        <span>Wong ED, Karra K, Hitz BC, Hong EL, Cherry JM</span>
-                    </li>
-                    <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/23023984">InterMine: a
-                        flexible data warehouse system for the integration and analysis of heterogeneous
-                        biological data</a>
-                        <span>Smith RN, Aleksic J, Butano D, Carr A, Contrino S, Hu F, Lyne M, Lyne R,
-                            Kalderimis A, Rutherford K, Stepan R, Sullivan J, Wakeling M, Watkins X, and
-                            Micklem G
-                        </span>
-                    </li>
-                    <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3308152/">
-                        YeastMine - an integrated data warehouse for Saccharomyces cerevisiae data as a
-                        multipurpose tool-kit</a>
-                        <span>Balakrishnan R, Park J, Karra K, Hitz BC, Binkley G, Hong EL, Sullivan J,
-                            Micklem G, and Michael JC
-                        </span>
-                    </li>
-                    <li><a target="_blank" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245176/">
-                        modMine: flexible access to modENCODE data</a>
-                        <span>Contrino S, Smith RN, Butano D, Carr A, Hu F, Lyne R, Rutherford K,
-                            Kalderimis A, Sullivan J, Carbon S, Kephart ET, Lloyd P, Stinson EO, Washington NL,
-                            Perry MD, Ruzanov P, Zha Z, Lewis SE, Stein LD, and Micklem G
-                        </span>
-                    </li>
+                    <li><a target="_blank" href="http://www.flymine.org">FlyMine</a> - <em>Drosophila</em> genomics</li>
+                    <li><a target="_blank" href="http://intermine.modencode.org">modMine</a> - fly and worm modENCODE data</li>
+                    <li><a target="_blank" href="http://www.mousemine.org">MouseMine</a> - at MGI</li>
+                    <li><a target="_blank" href="http://ratmine.mcw.edu">RatMine</a> - at RGD</li>
                 </ul>
-            </article>
-
-            <div class="four columns">
-                <img class="right" src="img/wellcome-blue.png" />
-                <img class="right" src="img/cambridge-blue.png" />
-                <p class="right">
-                    InterMine, Systems Biology Centre,<br />
-                    Tennis Court Road, Cambridge CB2 1QR, UK
-                </p>
+            </div>
+            <div class="large-4 small-12 columns">
+                <ul>
+                    <li><a target="_blank" href="http://www.wormbase.org/tools/wormmine">WormMine</a> - at WormBase</li>
+                    <li><a target="_blank" href="http://yeastmine.yeastgenome.org">YeastMine</a> - at SGD</li>
+                    <li><a target="_blank" href="http://zmine.zfin.org/zebrafishmine">ZFINMine</a> - at ZFIN</li>
+                    
+                </ul>
+            </div>
+            <div class="large-4 small-12 columns">
+                <ul>
+                    <li><a target="_blank" href="http://targetmine.nibio.go.jp">TargetMine</a> - drug target discovery</li>
+                    <li><a target="_blank" href="http://www.flytf.org">FlyTF.org</a> - <i>Drosophila</i> transcription factors</li>
+                    <li><a target="_blank" href="http://mitominer.mrc-mbu.cam.ac.uk">MitoMiner</a> - proteomic data for mitochondria</li>
+                    <li><a target="_blank" href="http://www.metabolicmine.org">metabolicMine</a> - human, mouse and rat</li>
+                </ul>
             </div>
         </div>
-    </footer>
-</body>
-</html>
+    </article>
+
+    <article class="quote small-12 columns">
+        <blockquote cite="https://twitter.com/intermineorg">InterMine is on the cloud! See <a target="_blank" href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">here</a> for details</blockquote>
+        <p>Follow us on the <a target="_blank" href="https://twitter.com/intermineorg/">InterMine twitter feed</a>.</p>
+    </article>
+</div>
+
+<div id="dirt">
+    <div class="row">
+        <article class="gray large-4 small-12 columns">
+            <h1>Getting started</h1>
+            <span class="sub">Yesterday by Julie</span>
+            <img src="{{ site.baseurl }}/assets/img/circular/code.png" />
+            <p>Setting up your own InterMine instance is easy. Check out our
+                <a href="http://intermine.readthedocs.org/en/latest/get-started/tutorial/">step-by-step guide</a> to creating
+                your own Mine, loading and processing datasets, and using the web app to query &amp;
+                export the data. You can also try out an existing InterMine instance on the <a href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">Amazon cloud</a>.</p>
+        </article>
+
+        <article class="gray large-4 small-12 columns">
+            <h1>Embed InterMine data or tools anywhere</h1>
+            <span class="sub">Two weeks ago by Sergio</span>
+            <img src="{{ site.baseurl }}/assets/img/circular/countryside.png" />
+            <p>You can embed analysis tools, query results and lots more onto any HTML page. You can get the data from your mine or any InterMine. See <a href="http://intermine-report-widgets-service.labs.intermine.org/" target="_new">here</a> for examples.</p>
+        </article>
+
+        <article class="gray large-4 small-12 columns">
+            <h1>Using web services</h1>
+            <span class="sub">October 1, 2012 by Alex</span>
+            <img src="{{ site.baseurl }}/assets/img/circular/bridge.png" />
+            <p>The InterMine web services expose our complete API, and can be used for automating
+                workflows, as well as enabling the development of external applications. While any
+                language that can parse HTTP can be used, we provide client libraries in 5 programming
+                languages -
+                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Python</a>,
+                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Perl</a>,
+                <a href="http://intermine.readthedocs.org/en/latest/web-services/">Java</a>,
+                <a target="_blank" href="http://intermine.readthedocs.org/en/latest/web-services/">JavaScript</a> and
+                <a target="_blank" href="http://rubygems.org/gems/intermine">Ruby</a>.</p>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <div class="row">
+        <article id="publications" class="small-8 columns">
+            <h1>Recent InterMine publications</h1>
+
+            <ul>
+                    <li><a target="_23652793" href="http://www.ncbi.nlm.nih.gov/pubmed/23652793">InterMOD: integrated data and tools for the unification of model organism research.</a>
+                    <span>Sullivan J, Karra K, Moxon S A, Vallejos A, Motenko H, et al.</span>
+                </li>
+                <li><a target="_23396302" href="http://www.ncbi.nlm.nih.gov/pubmed/23396302">The YeastGenome app: the Saccharomyces Genome Database at your fingertips</a>
+                    <span>Wong ED, Karra K, Hitz BC, Hong EL, Cherry JM</span>
+                </li>
+                <li><a target="_23023984" href="http://www.ncbi.nlm.nih.gov/pubmed/23023984">InterMine: a
+                    flexible data warehouse system for the integration and analysis of heterogeneous
+                    biological data</a>
+                    <span>Smith RN, Aleksic J, Butano D, Carr A, Contrino S, Hu F, Lyne M, Lyne R,
+                        Kalderimis A, Rutherford K, Stepan R, Sullivan J, Wakeling M, Watkins X, and
+                        Micklem G
+                    </span>
+                </li>
+                <li><a target="_PMC3308152" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3308152/">
+                    YeastMine - an integrated data warehouse for Saccharomyces cerevisiae data as a
+                    multipurpose tool-kit</a>
+                    <span>Balakrishnan R, Park J, Karra K, Hitz BC, Binkley G, Hong EL, Sullivan J,
+                        Micklem G, and Michael JC
+                    </span>
+                </li>
+                <li><a target="_PMC3245176" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3245176/">
+                    modMine: flexible access to modENCODE data</a>
+                    <span>Contrino S, Smith RN, Butano D, Carr A, Hu F, Lyne R, Rutherford K,
+                        Kalderimis A, Sullivan J, Carbon S, Kephart ET, Lloyd P, Stinson EO, Washington NL,
+                        Perry MD, Ruzanov P, Zha Z, Lewis SE, Stein LD, and Micklem G
+                    </span>
+                </li>
+            </ul>
+        </article>
+
+        <div class="small-4 columns">
+            <img class="right" src="{{ site.baseurl }}/assets/img/wellcome-blue.png" />
+            <img class="right" src="{{ site.baseurl }}/assets/img/cambridge-blue.png" />
+            <p class="right">
+                InterMine, Systems Biology Centre,<br />
+                Tennis Court Road, Cambridge CB2 1QR, UK
+            </p>
+        </div>
+    </div>
+</footer>

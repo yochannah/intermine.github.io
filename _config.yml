@@ -1,0 +1,17 @@
+# Name of the site & description.
+name:        "InterMine | University of Cambridge"
+description: "InterMine is an open source data warehouse built specifically for the integration and analysis of complex biological data"
+# Center on UK.
+timezone:    Europe/London
+# Publish articles with a future date.
+future:      true
+# Site url.
+url:         http://intermine.github.io/intermine.org/
+# Prefix when serving from a folder.
+baseurl:     ''
+# Ignore Node.js stuff.
+exclude:     [ node_modules, vendor, Gruntfile.coffee, bower.json, package.json, README.md ]
+
+encoding:    UTF-8
+markdown:    redcarpet
+pygments:    true
