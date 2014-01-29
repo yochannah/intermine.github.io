@@ -50,17 +50,13 @@ layout: html
         $(peeps).each(function(i, el) {
             var li;
             $('#klout ul').append(
-                li = $('<li/>').append($('<a/>', {
+                $('<li/>').append($('<a/>', {
                     'class': el[0],
                     'text': el[1],
                     'href': el[2],
-                    'target': '_blank'
+                    'target': '_' + el[0]
                 }))
             );
-            // Hide elements on the second+ row.
-            //if (li.position().top !== 0) {
-            //    li.hide();
-            //}
         });
 
         // Onclick klout more.
@@ -76,7 +72,7 @@ layout: html
     <div class="small-12 columns">
         <nav id="mini" class="right">
             <ul>
-                <li><a target="_blank" href="https://github.com/intermine/intermine">GitHub</a></li>
+                <li><a target="_github" href="https://github.com/intermine/intermine">GitHub</a></li>
                 <li><a href="http://intermine.readthedocs.org/en/latest/support/mailing-list/">Mailing list</a></li>
                 <li><a class="padlock" href="https://readthedocs.org/projects/intermine/">Login</a></li>
             </ul>
@@ -87,7 +83,7 @@ layout: html
 <div id="hero">
     <div class="row">
         <div class="large-5 small-12 columns">
-            <div id="logo"></div>
+            <a id="logo" href="{{ site.baseurl }}/" title="Home"></a>
         </div>
 
         <div class="large-7 small-12 columns">
@@ -104,12 +100,14 @@ layout: html
         <hr />
 
         <div class="large-5 small-12 columns">
+            {% comment %}
             <!--
             <div class="browser">
                 <span>flymine.org</span>
                 <img src="img/flymine.png" />
             </div>
             -->
+            {% endcomment %}
 
            <object id="scPlayer"  width="600" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" >
                 <param name="movie" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" />
@@ -125,6 +123,7 @@ layout: html
         </div>
         <div class="small-7 columns">
             <h1>Biological data warehouse</h1>
+
             <p class="important">InterMine is an open source data warehouse built specifically for
                 the integration and analysis of complex biological data. Developed by the Micklem
                 lab at the University of Cambridge, InterMine enables the creation of biological
@@ -145,8 +144,6 @@ layout: html
 
         <div id="klout" class="small-12 columns">
             <ul></ul>
-            <!-- temporarily remove "more" button. put back when we have more than 2 lines of logos -->
-            <!-- <a class="more">More</a> -->
         </div>
     </div>
 </div>
@@ -176,33 +173,33 @@ layout: html
         <div class="row">
             <div class="large-4 small-12 columns">
                 <ul>
-                    <li><a target="_blank" href="http://www.flymine.org">FlyMine</a> - <em>Drosophila</em> genomics</li>
-                    <li><a target="_blank" href="http://intermine.modencode.org">modMine</a> - fly and worm modENCODE data</li>
-                    <li><a target="_blank" href="http://www.mousemine.org">MouseMine</a> - at MGI</li>
-                    <li><a target="_blank" href="http://ratmine.mcw.edu">RatMine</a> - at RGD</li>
+                    <li><a target="_flymine" href="http://www.flymine.org">FlyMine</a> - <em>Drosophila</em> genomics</li>
+                    <li><a target="modmine" href="http://intermine.modencode.org">modMine</a> - fly and worm modENCODE data</li>
+                    <li><a target="_mousemine" href="http://www.mousemine.org">MouseMine</a> - at MGI</li>
+                    <li><a target="_ratmine" href="http://ratmine.mcw.edu">RatMine</a> - at RGD</li>
                 </ul>
             </div>
             <div class="large-4 small-12 columns">
                 <ul>
-                    <li><a target="_blank" href="http://www.wormbase.org/tools/wormmine">WormMine</a> - at WormBase</li>
-                    <li><a target="_blank" href="http://yeastmine.yeastgenome.org">YeastMine</a> - at SGD</li>
-                    <li><a target="_blank" href="http://zmine.zfin.org/zebrafishmine">ZFINMine</a> - at ZFIN</li>
+                    <li><a target="_wormmine" href="http://www.wormbase.org/tools/wormmine">WormMine</a> - at WormBase</li>
+                    <li><a target="_yeastmine" href="http://yeastmine.yeastgenome.org">YeastMine</a> - at SGD</li>
+                    <li><a target="_zfinmine" href="http://zmine.zfin.org/zebrafishmine">ZFINMine</a> - at ZFIN</li>
                     
                 </ul>
             </div>
             <div class="large-4 small-12 columns">
                 <ul>
-                    <li><a target="_blank" href="http://targetmine.nibio.go.jp">TargetMine</a> - drug target discovery</li>
-                    <li><a target="_blank" href="http://www.flytf.org">FlyTF.org</a> - <i>Drosophila</i> transcription factors</li>
-                    <li><a target="_blank" href="http://mitominer.mrc-mbu.cam.ac.uk">MitoMiner</a> - proteomic data for mitochondria</li>
-                    <li><a target="_blank" href="http://www.metabolicmine.org">metabolicMine</a> - human, mouse and rat</li>
+                    <li><a target="_targetmine" href="http://targetmine.nibio.go.jp">TargetMine</a> - drug target discovery</li>
+                    <li><a target="_flytf" href="http://www.flytf.org">FlyTF.org</a> - <i>Drosophila</i> transcription factors</li>
+                    <li><a target="_mitominer" href="http://mitominer.mrc-mbu.cam.ac.uk">MitoMiner</a> - proteomic data for mitochondria</li>
+                    <li><a target="_metabolicmine" href="http://www.metabolicmine.org">metabolicMine</a> - human, mouse and rat</li>
                 </ul>
             </div>
         </div>
     </article>
 
     <article class="quote small-12 columns">
-        <blockquote cite="https://twitter.com/intermineorg">InterMine is on the cloud! See <a target="_blank" href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">here</a> for details</blockquote>
+        <blockquote cite="https://twitter.com/intermineorg">InterMine is in the cloud! See <a target="_blank" href="http://intermine.readthedocs.org/en/latest/get-started/amazon/">here</a> for details</blockquote>
         <p>Follow us on the <a target="_blank" href="https://twitter.com/intermineorg/">InterMine twitter feed</a>.</p>
     </article>
 </div>
