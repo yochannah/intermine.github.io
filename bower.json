@@ -6,6 +6,6 @@
         "jquery": "~2.0.3",
         "moment": "~2.5.1",
         "knuth-shuffle": "~1.0.0",
-        "foundation": null
+        "foundation": "5.0.3"
     }
 }
