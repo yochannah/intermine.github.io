@@ -15,7 +15,7 @@ nav#mini ul li a.padlock{background:url("../img/padlock.png") no-repeat 0 7px;pa
 #hero #logo{background:url("../img/logo.png") no-repeat 0 0;width:321px;height:42px;margin:40px 0;display:block}
 #hero h1{font-family:Calibri,"Droid Sans",sans-serif;text-transform:uppercase;color:#fff;font-weight:400;font-size:34px;line-height:44px;margin:10px 0}
 #hero nav#main ul{height:42px;line-height:42px;margin:40px 0;}
-#hero nav#main ul li:not(:last-child){margin-right:24px}
+#hero nav#main ul li:not(:last-child){margin-right:1px}
 #hero nav#main ul li a{color:#fff;text-transform:uppercase;font-size:14.5px;font-weight:800;text-shadow:1px 1px 1px rgba(0,0,0,0.45);padding:6px}
 #hero p.important{color:#f2fbc3;font-size:14.5px}
 #hero .links{margin:20px 0 30px 0;}
