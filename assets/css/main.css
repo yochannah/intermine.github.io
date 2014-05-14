@@ -18,7 +18,7 @@ nav#mini ul li a.padlock{background:url("../img/padlock.png") no-repeat 0 7px;pa
 #hero nav#main ul li:not(:last-child){margin-right:1px}
 #hero nav#main ul li a{color:#fff;text-transform:uppercase;font-size:14.5px;font-weight:800;text-shadow:1px 1px 1px rgba(0,0,0,0.45);padding:6px}
 #hero p.important{color:#f2fbc3;font-size:14.5px}
-#hero .links{margin:20px 0 30px 0;}
+#hero .links{margin:20px 0 30px 0;text-align:center;}
 #hero .links:after{content:"";display:block;clear:both}
 #hero .links a.git{background:url("../img/download.png") no-repeat 0 0;width:184px;height:68px;display:block;text-indent:-9999px;white-space:nowrap;overflow:hidden}
 #hero .links a.started{display:block;text-transform:uppercase;font-weight:800;color:#fff;font-size:17px;background:url("../img/play.png") no-repeat 0 0;padding-left:40px;height:32px;line-height:32px;margin:16px 0 16px 40px}
