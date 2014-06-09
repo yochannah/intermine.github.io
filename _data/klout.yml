@@ -51,3 +51,7 @@
       slug: genozymes
       desc: 'Genozymes'
       url:  http://www.fungalgenomics.ca/wiki/Main_Page
+-
+      slug: ebi
+      desc: 'European Bioinformatics Institute'
+      url:  http://www.ebi.ac.uk
