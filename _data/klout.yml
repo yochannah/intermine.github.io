@@ -55,3 +55,7 @@
       slug: ebi
       desc: 'European Bioinformatics Institute'
       url:  http://www.ebi.ac.uk/
+-
+      slug: aip
+      desc: 'Arabidopsis Information Portal'
+      url:  https://www.araport.org/
