@@ -63,3 +63,7 @@
       slug: flowers
       desc: 'Flowers Consortium'
       url:  http://www.synbiuk.org/
+-
+      slug: tacc
+      desc: 'Texas Advanced Computing Center'
+      url:  https://www.tacc.utexas.edu/
