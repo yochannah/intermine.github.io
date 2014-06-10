@@ -59,3 +59,7 @@
       slug: aip
       desc: 'Arabidopsis Information Portal'
       url:  https://www.araport.org/
+-
+      slug: flowers
+      desc: 'Flowers Consortium'
+      url:  http://www.synbiuk.org/
