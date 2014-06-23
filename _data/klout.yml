@@ -67,3 +67,15 @@
       slug: tacc
       desc: 'Texas Advanced Computing Center'
       url:  https://www.tacc.utexas.edu/
+-
+      slug: imperial
+      desc: 'Imperial College London'
+      url:  http://www.imperial.ac.uk/
+-
+      slug: newcastle
+      desc: 'Newcastle University'
+      url:  http://www.ncl.ac.uk/
+-
+      slug: jcvi
+      desc: 'J. Craig Venter Institute'
+      url:  http://www.ncl.ac.uk/
