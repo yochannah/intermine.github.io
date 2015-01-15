@@ -57,6 +57,9 @@ nav#mini ul li a.padlock{background:url("../img/padlock.png") no-repeat 0 7px;pa
 #hero #klout ul li a.imperial{background-image:url("../img/klout/imperial.png");width:173px}
 #hero #klout ul li a.newcastle{background-image:url("../img/klout/newcastle.png");width:134px}
 #hero #klout ul li a.jcvi{background-image:url("../img/klout/jcvi.png");width:169px}
+#hero #klout ul li a.g2c{background-image:url("../img/klout/g2c.png");width:298px}
+#hero #klout ul li a.einstein{background-image:url("../img/klout/einstein.png");width:133px}
+
 article{margin:30px 0;}
 article.mines{margin:0 0 30px 0;}
 article.mines ul{margin:0}

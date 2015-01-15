@@ -79,3 +79,11 @@
       slug: jcvi
       desc: 'J. Craig Venter Institute'
       url:  http://www.ncl.ac.uk/
+-
+      slug: einstein
+      desc: 'Albert Einstein College of Medicine'
+      url:  http://www.einstein.yu.edu/
+-
+      slug: g2c
+      desc: 'Genes to Cognition'
+      url:  https://www.genes2cognition.org/
