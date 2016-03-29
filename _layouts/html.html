@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="google-site-verification" content="3H4BTLduT14yzc6B8_B5JBPrUYjlqdLhUStovRrzL1o" />    
+    <meta name="google-site-verification" content="3H4BTLduT14yzc6B8_B5JBPrUYjlqdLhUStovRrzL1o" />
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="{{ site.description }}">
@@ -59,7 +59,7 @@
                 <h1>Recent InterMine publications</h1>
 
                 <ul>
-                    {% for pub in site.data.publications | limit: 5 %}
+                    {% for pub in site.data.publications | limit: 3 %}
                     <li><a target="_{{ pub.pmid }}" href="http://www.ncbi.nlm.nih.gov/pubmed/{{ pub.pmid }}">{{ pub.title }}</a>
                         <span>{{ pub.authors }}</span>
                     </li>

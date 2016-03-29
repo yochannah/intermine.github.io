@@ -3,10 +3,6 @@
     authors: "Lyne Rachel, Sullivan Julie, Butano Daniela, Contrino Sergio, Heimbach Joshua, Hu Fengyuan, Kalderimis Alex, Lyne Mike, Smith N. Richard, Štěpán Radek, Balakrishnan Rama, Binkley Gail, Harris Todd, Karra Kalpana, Moxon A. T. Sierra, Motenko Howie, Neuhauser Steven, Ruzicka Leyla, Cherry Mike, Richardson Joel, Stein Lincoln, Westerfield Monte, Worthey Elizabeth and Micklem Gos"
     pmid: 26097192
 -
-    title: "MouseMine: a new data warehouse for MGI."
-    authors: "Motenko H, Neuhauser SB, O'Keefe M, Richardson JE"
-    pmid: 26092688
--
     title: "InterMine: extensive web services for modern biology"
     authors: "Kalderimis A, Lyne R, Butano D, Contrino S, Lyne M, Heimbach J, Hu F, Smith R, Stěpan R, Sullivan J, Micklem G"
     pmid: 24753429
@@ -14,6 +10,10 @@
     title: "InterMOD: integrated data and tools for the unification of model organism research"
     authors: "Sullivan J, Karra K, Moxon SA, Vallejos A, Motenko H, et al."
     pmid: 23652793
+-
+    title: "MouseMine: a new data warehouse for MGI."
+    authors: "Motenko H, Neuhauser SB, O'Keefe M, Richardson JE"
+    pmid: 26092688
 -
     title: "The YeastGenome app: the Saccharomyces Genome Database at your fingertips"
     authors: "Wong ED, Karra K, Hitz BC, Hong EL, Cherry JM"
