@@ -13,5 +13,5 @@ baseurl:     ''
 exclude:     [ node_modules, vendor, Gruntfile.coffee, bower.json, package.json, README.md ]
 
 encoding:    UTF-8
-markdown:    redcarpet
-pygments:    true
+markdown:    kramdown
+highlighter: pygments
