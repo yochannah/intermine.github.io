@@ -1,0 +1,89 @@
+-
+      slug: cambridge
+      desc: 'University of Cambridge, Department of Genetics, Systems Biology Centre'
+      url:  http://www.sysbiol.cam.ac.uk/
+-
+      slug: jax
+      desc: 'The Jackson Laboratory, Mouse Genome Informatics'
+      url:  http://www.informatics.jax.org/
+-
+      slug: oicr
+      desc: 'Ontario Institute for Cancer Research'
+      url:  http://oicr.on.ca/
+-
+      slug: wisconsin
+      desc: 'Medical College of Wisconsin'
+      url:  http://bbc.mcw.edu/
+-
+      slug: galaxy
+      desc: 'Galaxy Project'
+      url:  http://galaxyproject.org/
+-
+      slug: mrc
+      desc: 'Medical Research Council, Mitochondrial Biology Unit'
+      url:  http://www.mrc-mbu.cam.ac.uk/faculty-and-research/mitominer
+-
+      slug: nibio
+      desc: 'National Institute of Biomedical Innovation, Mizuguchi Laboratory'
+      url:  http://mizuguchilab.org/
+      img:  nibio.jpg
+-
+      slug: gmod
+      desc: 'GMOD, the Generic Model Organism Database project'
+      url:  http://gmod.org/wiki/Main_Page
+-
+      slug: go
+      desc: 'Gene Ontology'
+      url:  http://www.geneontology.org/
+-
+      slug: kaust
+      desc: 'King Abdullah University of Science and Technology'
+      url:  http://www.kaust.edu.sa/
+-
+      slug: oregon
+      desc: 'University of Oregon'
+      url:  https://www.uoregon.edu/
+-
+      slug: stanford
+      desc: 'Stanford University, Department of Genetics'
+      url:  http://genetics.stanford.edu/
+-
+      slug: genozymes
+      desc: 'Genozymes'
+      url:  http://www.fungalgenomics.ca/wiki/Main_Page
+-
+      slug: ebi
+      desc: 'European Bioinformatics Institute'
+      url:  http://www.ebi.ac.uk/
+-
+      slug: aip
+      desc: 'Arabidopsis Information Portal'
+      url:  https://www.araport.org/
+-
+      slug: flowers
+      desc: 'Flowers Consortium'
+      url:  http://www.synbiuk.org/
+-
+      slug: tacc
+      desc: 'Texas Advanced Computing Center'
+      url:  https://www.tacc.utexas.edu/
+-
+      slug: imperial
+      desc: 'Imperial College London'
+      url:  http://www.imperial.ac.uk/
+-
+      slug: newcastle
+      desc: 'Newcastle University'
+      url:  http://www.ncl.ac.uk/
+-
+      slug: jcvi
+      desc: 'J. Craig Venter Institute'
+      url:  http://www.ncl.ac.uk/
+-
+      slug: einstein
+      desc: 'Albert Einstein College of Medicine'
+      url:  http://www.einstein.yu.edu/
+-
+      slug: g2c
+      desc: 'Genes to Cognition'
+      url:  https://www.genes2cognition.org/

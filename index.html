@@ -1,461 +1,230 @@
-<!DOCTYPE html>
-<html>
+---
+layout: html
+---
 
-<head>
-	<meta name="generator" content="Hugo 0.26" />
-    <meta charset="utf-8">
-    <title>InterMine</title>
-    <link rel="stylesheet" href="https://yochannah.github.io/intermine-homepage-mocks/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://yochannah.github.io/intermine-homepage-mocks/js/menu.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-</head>
+<script>
+    // Preload klout images.
+    (function() {
+        {% for place in site.data.klout %}
+        var {{ place.slug }} = new Image(;)
+        {% if place.img %}
+        {{ place.slug }}.src = "{{ site.baseurl }}/assets/img/klout/{{ place.img }}";
+        {% else %}
+        {{ place.slug }}.src = "{{ site.baseurl }}/assets/img/klout/{{ place.slug }}.png";
+        {% endif %}
+        {% endfor %}
+    })();
 
-
-<body>
-    <header>
-  <div class="logo"><a href="https://yochannah.github.io/intermine-homepage-mocks">
-      <img src="https://cdn.rawgit.com/intermine/design-materials/ff1ec6bf/logos/intermine/intermine-300x37.png" width="300" height="37" alt="InterMine Home" /></a></div>
-  <nav tabindex="1">
-    <ul class="header-collapsible-nav" role="menubar">
-      <li class="navigation-menu-link">
-        <svg class="icon icon-homepage">
-          <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-menu"></use>
-        </svg>
-      </li>
-    
-    
-      <li tabindex="2" role="menu" aria-haspopup="true"> <h4 class="categories biologists">Biologists</h4>
-<ul>
-    
-    <li><a href="http://registry.intermine.org/">Which InterMine for my organism?
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/tutorials">Tutorials and Videos
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="http://flymine.readthedocs.io/en/latest/">User help documentation
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/mobile-apps">Mobile Apps</a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/web-services/#api-and-client-libraries">API Clients
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-            </a></li>
-</ul>
- <button id="closeNav" aria-label="Close">x</button></li>
-      <li tabindex="3" role="menu" aria-haspopup="true"> <h4 class="categories developers">Developers</h4>
-<ul>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/developers">Overview</a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/">Developer docs &amp; getting started        
-        <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="http://iodocs.apps.intermine.org/">API Docs
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="http://registry.intermine.org/">InterMine Registry
-        <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/web-services/#api-and-client-libraries">API Clients
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="https://lists.intermine.org/pipermail/dev/">Developer email list
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="http://chat.intermine.org">Support chat
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-</ul></li>
-      <li tabindex="4" role="menu" aria-haspopup="true"> <h4 class="categories contact">Contact</h4>
-<ul>
-    <li><a href="https://intermineorg.wordpress.com/">
-        <svg class="icon icon-wordpress">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-wordpress"></use></svg>
-             Blog
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://twitter.com/intermineorg">
-        <svg class="icon icon-twitter">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-twitter"></use></svg>
-             @intermineorg
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://lists.intermine.org/pipermail/dev/">
-        <svg class="icon icon-email">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-email"></use></svg>
-             Developer&nbsp;email&nbsp;list
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-            </a></li>
-    <li><a href="http://chat.intermine.org">
-        <svg class="icon icon-chat">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-chat"></use></svg> 
-            Chat
-            <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://github.com/intermine/intermine">
-        <svg class="icon icon-github">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-github"></use></svg>
-             Github
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="mailto:info@intermine.org">
-        <svg class="icon icon-email">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-email"></use></svg> 
-            info@intermine.org
-            <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-</ul>
- </li>
-      <li tabindex="5" role="menu" aria-haspopup="true"> <h4 class="categories resources">Resources</h4>
-<ul>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/publications">Publications &amp; citing us</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/team">About the team</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/projects">Projects</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/contributors">Contributors</a></li>
-    <li><a href="https://intermineorg.wordpress.com/logos/">Logos &amp; branding
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://github.com/intermine">InterMine on GitHub
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://intermineorg.wordpress.com/events/">Event Calendar
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>    
-    <li><a href="http://intermine.readthedocs.io/en/latest/about/#privacy-policy">Privacy Policy
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-</ul>
- </li>
-    </ul>
-  </nav>
-</header>
-    <main>
-        <div class="tagline non-alt">
-            <h2>Disparate data in, unified data out</h2>
-            <div class="details">
-                <div class="explanation">
-                    <p class="main-text">InterMine integrates biological data sources, making it easy to query and analyse data.</p>
-                    <p class="supporting-text">InterMine is <a href="https://github.com/intermine/intermine">open source</a> (LGPL 2.1) and free to
-                        use. </p>
-                    <p class="supporting-text"><a href="http://registry.intermine.org/">Many different InterMines exist worldwide</a>, covering
-                        a broad range of organisms.</p>
-                </div>
-                <img src="images/disparate-data-in-unified-data-out-no-text.svg" width="600" height="231" alt="InterMine combines multiple data sources into a single queryable source">
-            </div>
-        </div>
-        <div class="showcase">
-             
-
-
-<div class="mine-showcase">
-    <div class="intermine-links">
-    
-    
-        
-        <a href="http://yeastmine.yeastgenome.org/yeastmine" title="Search and retrieve S. cerevisiae data, populated by SGD and powered by InterMine" class="intermine-link">
-        <span class="minename">YeastMine</span>
-        </a>
-    
-        
-        <a href="http://intermine.wormbase.org/tools/wormmine" title="Intermine data mining platform for C. elegans and related nematodes" class="intermine-link">
-        <span class="minename">WormMine</span>
-        </a>
-    
-        
-        <a href="http://www.flymine.org/flymine" title=" An integrated database for Drosophila genomics" class="intermine-link">
-        <span class="minename">FlyMine</span>
-        </a>
-    
-        
-        <a href="http://zebrafishmine.org" title=" ZebrafishMine is powered by the InterMIne data warehouse system, and integrates biological data sets from multiple sources.
-It currently includes updates of data from ZFIN, the zebrafish model organism database. There is also data from the Panther database." class="intermine-link">
-        <span class="minename">ZebrafishMine</span>
-        </a>
-    
-        
-        <a href="http://ratmine.mcw.edu/ratmine" title="RatMine integrates many types of data for Rattus Norvegicus, Homo Sapiens, Mus Musculus and other organisms. You can run flexible queries, export results and analyse lists of data. The Rat Genome Database (RGD) was established in 1999 and is the premier site for genetic, genomic, phenotype, and disease data generated from rat research. In addition, it provides easy access to corresponding human and mouse data for cross-species comparisons. RGD&#39;s comprehensive data and innovative software tools make it a valuable resource for researchers worldwide." class="intermine-link">
-        <span class="minename">RatMine</span>
-        </a>
-    
-        
-        <a href="http://www.mousemine.org/mousemine" title="MouseMine is a powerful new system for online access to mouse data from MGI (Mouse Genome Informatics). For more than 20 years, MGI has provided high-quality scientific data on the laboratory mouse, gathered and integrated from hundreds of sources. Over the years, MGI has provided an evolving set of tools for accessing those data, including an interactive web interface (WI), database reports downloaded from our ftp site, direct SQL access, and most recently, via data warehouse systems such as BioMart. MouseMine represents a new generation of access to MGI data. Powered by InterMine, MouseMine offers flexible querying, numerous predefined query templates, a point-and-click interface for building your own queries or modifying a template, iterative refinement of results, built-in enrichment analysis, downloading in multiple formats, forwarding to Galaxy, and more." class="intermine-link">
-        <span class="minename">MouseMine</span>
-        </a>
-    
-    
-    
-    
-    
-        <a href="http://targetmine.mizuguchilab.org/targetmine" title="TargetMine integrates many types of data for human, rat and mouse" class="intermine-link">
-        <span class="minename">TargetMine</span>
-        </a>
-    
-    
-        <a href="http://planmine.mpi-cbg.de/planmine" title=" An integrated web resource of data &amp; tools to mine Planarian biology" class="intermine-link">
-        <span class="minename">PlanMine</span>
-        </a>
-    
-    
-        <a href="https://phytozome.jgi.doe.gov/phytomine/" title="An InterMine interface to data from Phytozome, the Plant Comparative Genomics portal of the Department of Energy&#39;s Joint Genome Institute, which hosts 81 assembled and annotation genomes, from 78 viridiplantae species." class="intermine-link">
-        <span class="minename">PhytoMine</span>
-        </a>
-    
-    
-        <a href="http://hymenopteragenome.org/hymenopteramine" title="An integrated data warehouse for the Hymenoptera Genome Database" class="intermine-link">
-        <span class="minename">HymenopteraMine</span>
-        </a>
-    
-    
-        <a href="http://intermine.modencode.org/release-33" title="A data warehouse for the modENCODE project" class="intermine-link">
-        <span class="minename">ModMine</span>
-        </a>
-    
-    
-        <a href="https://mines.legumeinfo.org/chickpeamine" title="A mine with chickpea data (both desi and kabuli varieties) from the Legume Information Systems (LIS) tripal.chado database" class="intermine-link">
-        <span class="minename">ChickpeaMine</span>
-        </a>
-    
-    <a href="http://www.synbiomine.org/" title="Data mining and parts for synthetic biology" class="intermine-link">
-        <span class="minename">SynBioMine</span>
-    </a>
-    
+    $(function() {
+        // Klout peeps.
+        $(knuthShuffle([
+        {% for place in site.data.klout %}
+            [ "{{ place.slug }}", "{{ place.desc }}", "{{ place.url }}" ]{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        ])).each(function(i, el) {
+            $('#klout ul').append(
+                $('<li/>').append(
+                    $('<a/>', {
+                        'class': el[0],
+                        'text':  el[1],
+                        'title': el[1],
+                        'href':  el[2],
+                        'target': '_' + el[0]
+                    })
+                )
+            );
+        });
+    });
+</script>
+<div class="row">
+    <div class="small-12 columns">
+        <nav id="mini" class="right">
+            <ul>
+              <li><a href="http://intermineorg.wordpress.com">Blog</a></li>
+              <li><a target="_github" href="https://github.com/intermine/intermine">GitHub</a></li>
+              <li><a href="http://intermine.readthedocs.io/en/latest/support/mailing-list/">Mailing list</a></li>
+              <li><a href="http://chat.intermine.org">Support chat</a></li>
+              <li><a href="http://bluegenes.apps.intermine.org/">BlueGenes (alpha)</a></li>
+              <li><a href="http://intermine.readthedocs.io/en/latest/about/#privacy-policy">Privacy Policy</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="explanation">
-            <h2>There's an InterMine for (almost) anyone</h2>
-            <p>With InterMine you can search across data for one or many organisms, and jump between different organisms based on homology. </p>
-           <p>This is a sample of the organisms and research areas that you can find at different InterMine installations - click on one to go straight to that service.</p>
-        </div>
-    </div>
-                
-            <h2>InterMine Features</h2>
-            <div class="table-showcase">
-                <div class="demo-imtable">
-    <div id="demo-imtable" class="loading"></div>
 </div>
 
-<script src="http://cdn.intermine.org/js/intermine/im-tables/2.0.2/imtables.js" charset="UTF-8"></script>
-<link rel="stylesheet" href="http://cdn.intermine.org/js/intermine/im-tables/2.0.2/main.sandboxed.css">
-<script>
+<div id="hero">
+    <div class="row">
+        <div class="large-5 small-12 columns">
+            <a id="logo" href="{{ site.baseurl }}/" title="Home"></a>
+        </div>
 
-var selector = '#demo-imtable';
-var service  = {root: 'http://www.flymine.org/flymine/service/'};
-var query    = {
-    "name": "Gene_GO",
-    "title": "Gene --> GO terms",
-    "comment": "06.06.07 updated to work from gene class - Philip",
-    "description": "Search for GO annotations for a particular gene.",
-    "from": "Gene",
-    "select": [
-      "symbol",
-      "secondaryIdentifier",
-      "goAnnotation.ontologyTerm.identifier",
-      "goAnnotation.ontologyTerm.name",
-      "goAnnotation.evidence.code.code",
-      "goAnnotation.ontologyTerm.namespace"
-    ],
-    "orderBy": [
-      {
-        "path": "secondaryIdentifier",
-        "direction": "ASC"
-      }
-    ],
-    "where": [
-      {
-        "path": "Gene",
-        "op": "LOOKUP",
-        "value": "zen",
-        "extraValue": "",
-        "code": "A",
-        "editable": true,
-        "switched": "LOCKED",
-        "switchable": false
-      }
-    ]
-  };
+        <div class="large-7 small-12 columns">
+            <nav id="main" class="right">
+                <ul>
+                    <li><a href="http://intermine.readthedocs.io/en/latest/about/intermine/">Features</a></li>
+                    <li><a href="http://intermine.readthedocs.io/en/latest/">Documentation</a></li>
+                    <li><a href="http://intermine.readthedocs.io/en/latest/git/">Download</a></li>
+                    <li><a href="http://intermine.readthedocs.io/en/latest/about/services/">Services</a></li>
+                    <li><a href="http://intermine.readthedocs.io/en/latest/about/contact-us/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
 
-imtables.loadDash(
-  selector, 
-  {"start":0,"limit":5}, 
-  {service: service, query: query} 
-).then(
-  function (table) { document.getElementById(selector).removeClass("loading") },
-  function (error) { console.error('Could not load table', error); }
-);
+        <hr />
 
-</script>
+        <div class="large-5 small-12 columns">
+            {% comment %}
+            <!--
+            <div class="browser">
+                <span>flymine.org</span>
+                <img src="img/flymine.png" />
+            </div>
+            -->
+            {% endcomment %}
 
-                <div class="explanation">
-                    <h3>Dynamic data tables</h3>
+           <object id="scPlayer"  width="600" height="600" type="application/x-shockwave-flash" data="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" >
+                <param name="movie" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/scplayer.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#859E02" />
+                <param name="flashVars" value="thumb=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/FirstFrame.jpg&containerwidth=640&containerheight=480&xmp=sc.xmp&content=http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/LighteningOverview3.mp4.mp4&blurover=false" />
+                <param name="allowFullScreen" value="true" />
+                <param name="scale" value="showall" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="base" value="http://content.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/" />
+                <iframe type="text/html" frameborder="0" scrolling="no" style="overflow:hidden;" src="http://www.screencast.com/users/InterMine/folders/InterMine/media/e8e3b7e6-b303-408d-bef3-f2cbb4ba722b/embed" height="600" width="600" ></iframe>
+            </object>
+        </div>
+        <div class="small-7 columns">
+            <h1>Biological data warehouse</h1>
 
-                    <p>InterMine's tables allow you to easily drill down into data. It's easy to filter data, add additional
-                        columns, navigate to report pages.</p>
-                    <h4>Try it yourself!</h4>
-                    <p>Try clicking on the
-                        <svg class="icon icon-bar-chart">
-                            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-bar-chart"></use>
-                        </svg> icon in the ontology term namespace and filtering the column to show only one term.</p>
-                        <h4>Run queries in many languages</h4>
-                        <p>Try clicking on the "Generate Python code" button - or use the dropdown to choose a different language. You can then easily copy/paste the queries to your scripts.</p>
-                        <p class="descriptor">Shown in table: GO terms related to the Drosophila gene "zen". Data drawn from <a href="http://www.flymine.org">FlyMine</a>.</p>                       
+            <p class="important">InterMine is an open source data warehouse built specifically for
+                the integration and analysis of complex biological data. Developed by the Micklem
+                lab at the University of Cambridge, InterMine enables the creation of biological
+                databases accessed by sophisticated web query tools. Parsers are provided for
+                integrating data from many common biological data sources and formats, and there is
+                a framework for adding your own data. InterMine includes an attractive, user-friendly
+                web interface that works 'out of the box' and can be easily customised for your
+                specific needs, as well as a powerful, scriptable web-service API to allow
+                programmatic access to your data.</p>
 
-                </div>
+            <div class="links">
+                <a href="http://intermine.readthedocs.io/en/latest/git/" class="mainbutton mainbutton-rounded mainbutton-medium mainbutton-highlight"><i class="fa fa-github"></i> Source</a>
+                <a href="http://intermine.readthedocs.io/en/latest/get-started/tutorial/" class="mainbutton mainbutton-rounded mainbutton-medium"><i class="fa fa-arrow-circle-right"></i> Getting Started</a>
+                <a href="http://intermine.readthedocs.io/en/latest/about/services/" class="mainbutton mainbutton-rounded mainbutton-medium"><i class="fa fa-users"></i> Consulting</a>
             </div>
         </div>
-    </main>
 
-    <footer>
-    <div class="sitemap-link-group biologists">
-        <h4 class="categories biologists">Biologists</h4>
-<ul>
-    
-    <li><a href="http://registry.intermine.org/">Which InterMine for my organism?
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/tutorials">Tutorials and Videos
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="http://flymine.readthedocs.io/en/latest/">User help documentation
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/mobile-apps">Mobile Apps</a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/web-services/#api-and-client-libraries">API Clients
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-            </a></li>
-</ul>
- 
-    
-    
-    </div>
-    <div class="sitemap-link-group developers">
-            <h4 class="categories developers">Developers</h4>
-<ul>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/developers">Overview</a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/">Developer docs &amp; getting started        
-        <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="http://iodocs.apps.intermine.org/">API Docs
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="http://registry.intermine.org/">InterMine Registry
-        <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="http://intermine.readthedocs.io/en/latest/web-services/#api-and-client-libraries">API Clients
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="https://lists.intermine.org/pipermail/dev/">Developer email list
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-    <li><a href="http://chat.intermine.org">Support chat
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-    </a></li>
-</ul>
+        <hr />
+
+        <div id="klout" class="small-12 columns">
+            <ul></ul>
         </div>
-        <div class="sitemap-link-group contact">
-                <h4 class="categories contact">Contact</h4>
-<ul>
-    <li><a href="https://intermineorg.wordpress.com/">
-        <svg class="icon icon-wordpress">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-wordpress"></use></svg>
-             Blog
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://twitter.com/intermineorg">
-        <svg class="icon icon-twitter">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-twitter"></use></svg>
-             @intermineorg
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://lists.intermine.org/pipermail/dev/">
-        <svg class="icon icon-email">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-email"></use></svg>
-             Developer&nbsp;email&nbsp;list
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-            </a></li>
-    <li><a href="http://chat.intermine.org">
-        <svg class="icon icon-chat">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-chat"></use></svg> 
-            Chat
-            <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-                </a></li>
-    <li><a href="https://github.com/intermine/intermine">
-        <svg class="icon icon-github">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-github"></use></svg>
-             Github
-             <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg>
-        </a></li>
-    <li><a href="mailto:info@intermine.org">
-        <svg class="icon icon-email">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-email"></use></svg> 
-            info@intermine.org
-            <svg class="icon icon-linkout">
-                    <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-</ul>
+    </div>
+</div>
 
+<div class="row">
+    <article class="white large-6 small-12 columns">
+        <h1>Complex data integration</h1>
+        <p>InterMine was developed with the complexity of biological data in mind. The data model is
+            flexible and extensible, and a range of data parsers is provided to facilitate the data
+            loading. A sophisticated identifier resolution system updates all identifiers to the most
+            current version using a priority system, and multiple post-processing checks ensure the
+            consistency of the data integration.</p>
+    </article>
+
+    <article class="white large-6 small-12 columns">
+        <h1>Fast and flexible querying</h1>
+        <p>Complex queries can be constructed flexibly to mine across the integrated datasets,
+            enabling researchers to answer sophisticated biological questions. The query optimisation
+            method is constructed around the use of precomputed tables, meaning that the data schema
+            does not need to be denormalized to optimise query speed. A user's query workflow can also
+            be automated using InterMine web services.</p>
+    </article>
+
+    <article class="white small-12 columns mines">
+        <h1>Existing mines</h1>
+        <p>A number of different data warehouses powered by InterMine already exist. These include:</p>
+        <div class="row">
+            <div class="large-4 small-12 columns">
+                <ul>
+                    <li><a target="_flymine" href="http://www.flymine.org">FlyMine</a> - <em>Drosophila</em> genomics</li>
+                    <li><a target="_modmine" href="http://intermine.modencode.org">modMine</a> - fly and worm modENCODE data</li>
+                    <li><a target="_mousemine" href="http://www.mousemine.org">MouseMine</a> - at MGI</li>
+                    <li><a target="_ratmine" href="http://ratmine.mcw.edu">RatMine</a> - at RGD</li>
+                    <li><a target="_wormmine" href="http://intermine.wormbase.org/tools/wormmine/begin.do">WormMine</a> - at WormBase</li>
+                    <li><a target="_yeastmine" href="http://yeastmine.yeastgenome.org">YeastMine</a> - at SGD</li>
+                    <li><a target="_zfinmine" href="http://zmine.zfin.org/zebrafishmine">ZebrafishMine</a> - at ZFIN</li>
+                    <li><a target="_indigomine" href="http://www.cbrc.kaust.edu.sa/indigo">INDIGOmine</a> - microbes</li>
+                    <li><a target="_thalemine" href="https://apps.araport.org/thalemine">ThaleMine</a> - Araport Project with data for Arabidopsis thaliana</li>
+                    <li><a target="_blank" href="https://mines.legumeinfo.org/chickpeamine/begin.do">ChickpeaMine</a> - Desi &amp; Kabul chickpea</li>
+                </ul>
             </div>
-            <div class="sitemap-link-group resources">
-        <h4 class="categories resources">Resources</h4>
-<ul>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/publications">Publications &amp; citing us</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/team">About the team</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/projects">Projects</a></li>
-    <li><a href="https://yochannah.github.io/intermine-homepage-mocks/contributors">Contributors</a></li>
-    <li><a href="https://intermineorg.wordpress.com/logos/">Logos &amp; branding
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://github.com/intermine">InterMine on GitHub
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-    <li><a href="https://intermineorg.wordpress.com/events/">Event Calendar
-        <svg class="icon icon-linkout">
-                <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>    
-    <li><a href="http://intermine.readthedocs.io/en/latest/about/#privacy-policy">Privacy Policy
-            <svg class="icon icon-linkout">
-            <use xlink:href="https://yochannah.github.io/intermine-homepage-mocks/images/symbol-defs.svg#icon-externallink"></use></svg></a></li>
-</ul>
-
-    </div>
-
-    <div class="sitemap-link-group affiliations">
-        <h4>Funding &amp; affiliations</h4>
-        <h5 class="subheading">Funders</h5>
-        <div class="funders">
-            <a href="https://wellcome.ac.uk/"><img src="https://yochannah.github.io/intermine-homepage-mocks/images/wellcome-logo.png" alt="InterMine's cloud project is funded by the Wellcome Trust" height="75"></a>
-            <a href="http://www.bbsrc.ac.uk/"><img src="https://yochannah.github.io/intermine-homepage-mocks/images/bbsrc-logo.gif" alt="InterMine's FAIR project is funded by the BBSRC" width="200"></a>
+            <div class="large-4 small-12 columns">
+                <ul>
+                    <li><a target="_targetmine" href="http://targetmine.mizuguchilab.org">TargetMine</a> - drug target discovery</li>
+                    <li><a target="_mitominer" href="http://mitominer.mrc-mbu.cam.ac.uk">MitoMiner</a> - proteomic data for mitochondria</li>
+                    <li><a target="_metabolicmine" href="http://www.humanmine.org">HumanMine</a> - human</li>
+                    <li><a target="_flytf" href="http://www.flytf.org">FlyTF.org</a> - <i>Drosophila</i> transcription factors</li>
+                    <li><a target="_phytomine" href="https://phytozome.jgi.doe.gov/phytomine/begin.do">PhytoMine</a> - plants</li>
+                    <li><a target="_medicmine" href="http://medicmine.jcvi.org">MedicMine</a> - <i>Medicago truncatula</i></li>
+                    <li><a target="_blank" href="http://bovinegenome.org/bovinemine/begin.do">BovineMine</a> - <i>Bos Taurus</i></li>
+                    <li><a target="_blank" href="http://hymenopteragenome.org/hymenopteramine/begin.do">HymenopteraMine</a> - Bees, Ants &amp; Wasps</li>
+                    <li><a target="_blank" href="http://mines.legumeinfo.org/soymine/begin.do">SoyMine</a> - Soybase soy bean data</li>
+                    <li><a target="_chomine" href="https://chomine.boku.ac.at/chomine/begin.do">CHOMine</a> - <i>Cricetulus griseus</i> and CHO cells</li>
+                  </ul>
+          </div>
+            <div class="large-4 small-12 columns">
+                <ul>
+                    <li><a target="_blank" href="http://mines.legumeinfo.org/beanmine">BeanMine</a> - LegFed chado bean data </li>
+                    <li><a target="_blank" href="http://intermine.legumefederation.org/legumemine/begin.do">LegumeMine</a> - String bean, Soy, and Peanut </li>
+                    <li><a target="_blank" href="http://mines.legumeinfo.org/peanutmine/begin.do">PeanutMine</a> - Peanut chado/GFF data </li>
+                    <li><a target="_blank" href="http://www.shaare.org.uk/release-1.0/begin.do">Shaare</a> - Gene candidate prioritisation</li>
+                    <li><a target="_blank" href="http://planmine.mpi-cbg.de/planmine/begin.do">PlanMine</a> - Planarian flatworms</li>
+                    <li><a target="_blank" href="http://urgi.versailles.inra.fr/Wheat3BMine/begin.do">Wheat3BMine</a> - Wheat chromosome 3B</li>
+                    <li><a target="_blank" href="http://urgi.versailles.inra.fr/GrapeMine/begin.do">GrapeMine</a> - Grapevine</li>
+                    <li><a target="_blank" href="http://urgi.versailles.inra.fr/repetdb/">RepetDB</a> - repetitive DNA elements</li>
+                    <li><a target="_blank" href="http://www.xenmine.org/xenmine/begin.do">XenMine</a> - Xenopus</li>
+                    <li><a target="_blank" href="http://adenine.bradley.edu/tetramine/begin.do">TetraMine</a> - <i>Tetrahymena thermophila</i></li>
+                </ul>
+            </div>
         </div>
-        <h5 class="subheading">Affiliations</h5>
-        <div class="affiliation-logos">
-            <a href="https://www.gen.cam.ac.uk/"><img src="https://yochannah.github.io/intermine-homepage-mocks/images/cambridge-logo.png" alt="Part of the University of Cambridge" width="202" height="42" /></a>
-            <a href="http://www.elixir-uk.org/"><img src="https://yochannah.github.io/intermine-homepage-mocks/images/elixir-uk-logo.png" alt="InterMine is an ELIXIR-UK resource" width="80" height="80" /></a>
-        </div>
-        </ul>
-        <div><a href="https://yochannah.github.io/intermine-homepage-mocks/credits">Credits</a></div>
-        
+    </article>
+</div>
+
+<div id="dirt">
+    <div class="row">
+        {% for post in site.posts | limit: 3 %}
+        <article class="gray large-4 small-12 columns">
+            <h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
+            <span class="sub"><time datetime="{{ post.date | date_to_xmlschema}}" method="ago"></time> by {{ post.author | default: Radek }}</span>
+            {% if post.image %}
+            <img src="{{ site.baseurl }}/assets/img/circular/{{ post.image }}" />
+            {% endif %}
+            {{ post.content }}
+        </article>
+        {% endfor %}
     </div>
-</footer>
+</div>
 
-</body>
+<div class="row">
+  <div class="small-6 columns">
+    <article>
+      <a class="twitter-timeline" href="https://twitter.com/intermineorg" data-widget-id="664064580222640128">Tweets by @intermineorg</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </article>
+  </div>
+  <div class="small-3 columns">
+    <article>
+      <br />
+      <p>Check out InterMine's new multi-mine Android app at the <a href="https://play.google.com/store/apps/details?id=org.intermine.app">Google Play Store</a></p>
+      <a href="https://play.google.com/store/apps/details?id=org.intermine.app&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge-border.png" /></a>
 
-</html>
+    </article>
+  </div>
+  <div class="small-3 columns">
+    <article>
+      <a href="https://play.google.com/store/apps/details?id=org.intermine.app">
+      <img src="{{site.baseurl}}/assets/img/intermine-android-app.png" alt="Screenshot of InterMine's Android app" /></a>
+    </article>
+  </div>
+
+</div>
