@@ -1,56 +1,12 @@
-# InterMine.org Site [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+This is the homepage for intermine.org.
 
-This is the landing page for InterMine powered by [Jekyll](http://jekyllrb.com/) on [GitHub Pages](http://pages.github.com/).
+Quick notes - the site is newly re-launched! We don't have a build process in place yet, and we haven't removed the old site contents. 
 
-Any changes to this, `gh-pages`, branch will get reflected at [http://intermine.github.io/intermine.org/](http://intermine.github.io/intermine.org/).
+## Updating the site
 
-##Quickstart
+1. The primary content is here: https://github.com/yochannah/intermine-homepage-2017 - visit this repo and make the changes you like. There is documentation about how to make changes in the [README](https://github.com/yochannah/intermine-homepage-2017/blob/master/README.md).
+2. When you've made changes to your satisfaction, generate the site using the command `hugo` if you haven't already and then cop/paste the root directory from that repo into your local copy of *this* repo. Merge/overrwrite any older files if your OS prompts you. 
+3. Commit and push to this repo on the master branch. 
+4. Thanks ot the magic of gh-pages, it will automatically be live on intermine.org! Well done!
 
-Create a new post in `_posts` and then install & build:
-
-```bash
-$ gem install jekyll
-$ jekyll build
-```
-
-##Commands
-
-###Jekyll
-
-Install:
-
-```bash
-$ gem install jekyll
-```
-
-Watch & serve for local development:
-
-```bash
-$ jekyll serve --watch --drafts --baseurl=
-```
-
-Build:
-
-```bash
-$ jekyll build
-```
-
-###Bower & Grunt
-
-Install `npm` dependencies:
-
-```bash
-$ npm install -d
-```
-
-Get vendor libraries using `Bower`:
-
-```bash
-$ bower install
-```
-
-Watch styles and scripts and build them using `Grunt`:
-
-```bash
-$ watch --color -n 1 grunt
-```
+TODO: Make automatic deployment process and remove old jekyll content.
