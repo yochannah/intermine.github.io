@@ -1,6 +1,6 @@
 This is the homepage for intermine.org.
 
-Quick notes - the site is newly re-launched! We don't have a build process in place yet, and we haven't removed the old site contents. 
+Quick notes - the site is newly re-launched! We don't have a build process in place yet, and we haven't removed the old site contents from the repo.
 
 ## Updating the site
 
