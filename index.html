@@ -16,7 +16,7 @@
 <body>
     <header>
   <div class="logo"><a href="http://intermine.org">
-      <img src="https://cdn.rawgit.com/intermine/design-materials/ff1ec6bf/logos/intermine/intermine-300x37.png" width="300" height="37" alt="InterMine Home" /></a></div>
+      <img src="https://raw.githubusercontent.com/intermine/design-materials/ff1ec6bf/logos/intermine/intermine-300x37.png" width="300" height="37" alt="InterMine Home" /></a></div>
   <nav tabindex="1">
     <ul class="header-collapsible-nav" role="menubar">
       <li class="navigation-menu-link">
@@ -76,6 +76,8 @@
         <svg class="icon icon-linkout">
                 <use xlink:href="http://intermine.org/images/symbol-defs.svg#icon-externallink"></use></svg>
     </a></li>
+    <li><a href="http://intermine.org/contributing">Contributing guidelines</a></li>
+
 </ul>
 </li>
       <li tabindex="4" role="menu" aria-haspopup="true"> <h4 class="categories contact">Contact</h4>
@@ -149,6 +151,7 @@
     </ul>
   </nav>
 </header>
+
     <main>
         <div class="tagline non-alt">
             <h2>Disparate data in, unified data out</h2>
@@ -164,30 +167,8 @@
                 <img src="images/disparate-data-in-unified-data-out-no-text.svg" width="600" height="231" alt="InterMine combines multiple data sources into a single queryable source">
             </div>
         </div>
+
         <div class="showcase">
-
-            <div class="table-showcase cross-intermine-search">
-  <h2>Which InterMine is for you?</h2>
-  <p>Search for your favourite biological thing across all intermines</p>
-  <form id="crossInterMineSearch" action="http://cross-intermine-search-tool.herokuapp.com/">
-    <input type="text" placeholder="E.g. Diabetes, BRCA1, PPARG_HUMAN" id="search" />
-    <button type="submit">Search (launches a new page)</button>
-  </form>
-  <p class="quicklink-results">
-    Or jump straight to the results for <a href="http://cross-intermine-search-tool.herokuapp.com/#/?search=BRCA1">BRCA1</a> or <a href="http://cross-intermine-search-tool.herokuapp.com/#/?search=diabetes">diabetes</a>.
-  </p>
-</div>
-
-<script>
-  var searchForm = document.getElementById("crossInterMineSearch"),
-    url = "http://cross-intermine-search-tool.herokuapp.com/#/";
-  searchForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    var searchTerm = e.target.search.value;
-    window.open(url + "?search=" + e.target.search.value, "_blank");
-  });
-</script>
-
 
             
 
@@ -239,47 +220,7 @@ It currently includes updates of data from ZFIN, the zebrafish model organism da
         
     
     
-    
-        
-    
-        
-    
-        
-             <a href="http://bovinegenome.org/bovinemine" title="An integrated data warehouse for the Bovine Genome Database" class="intermine-link">
-                <span class="minename">BovineMine</span>
-            </a>
-        
-    
-        
-             <a href="https://mines.legumeinfo.org/peanutmine" title="A mine with peanut data from Legume Information Systems (LIS) PeanutBase" class="intermine-link">
-                <span class="minename">PeanutMine</span>
-            </a>
-        
-    
-        
-             <a href="http://intermine.modencode.org/release-33" title="A data warehouse for the modENCODE project" class="intermine-link">
-                <span class="minename">ModMine</span>
-            </a>
-        
-    
-        
-             <a href="http://adenine.bradley.edu/tetramine" title="Advanced search and retrieval of genome data for Tetrahymena thermophila using Intermine" class="intermine-link">
-                <span class="minename">TetraMine</span>
-            </a>
-        
-    
-        
-             <a href="https://bmap.jgi.doe.gov/bmapmine" title="Brassicales Map Alignment Project" class="intermine-link">
-                <span class="minename">BMAP</span>
-            </a>
-        
-    
-        
-             <a href="http://urgi.versailles.inra.fr/repetdb" title="Repeats intermine database" class="intermine-link">
-                <span class="minename">RepetDB</span>
-            </a>
-        
-    
+    <span id="random-mines"></span>
     
     
 
@@ -330,19 +271,24 @@ It currently includes updates of data from ZFIN, the zebrafish model organism da
         </a>
         
     
-    
-    <a href="http://www.synbiomine.org/" title="Data mining and parts for synthetic biology" class="intermine-link">
-        <span class="minename">SynBioMine</span>
-    </a>
 
     </div>
     <div class="explanation">
             <h2>There's an InterMine for (almost) anyone</h2>
             <p>With InterMine you can explore organism and other research data provided by many different organizations, moving between databases using criteria such as homology.</p>
 
-                    <p>This is a sample of the InterMine installations available - click on one to go straight to that service.</p>
+            <p>This is a sample of the InterMine installations available - click on one to go straight to that service.</p>
         </div>
     </div>
+
+<script src="/js/randomMines.js"></script>
+
+
+            <div class="contributing">
+              <svg class="icon icon-externallink"><use xlink:href="http://intermine.org/images/symbol-defs.svg#icon-info"></use></svg>
+              <p>Are you interested in contributing to InterMine?</p>
+              <a href="/contributing">Visit our contributor guide.</a>
+            </div>
 
 
             <h2>InterMine Features</h2>
@@ -418,7 +364,31 @@ imtables.loadDash(
 
                 </div>
             </div>
+
+            <div class="cross-intermine-search">
+  <h2>Which InterMine is for you?</h2>
+  <p>Search for your favourite biological thing across all intermines</p>
+  <form id="crossInterMineSearch" action="http://cross-intermine-search-tool.apps.intermine.org/">
+    <input type="text" placeholder="E.g. Diabetes, BRCA1, PPARG_HUMAN" id="search" />
+    <button type="submit">Search (launches a new page)</button>
+  </form>
+  <p class="quicklink-results">
+    Or jump straight to the results for <a href="http://cross-intermine-search-tool.apps.intermine.org/#/?search=BRCA1">BRCA1</a> or <a href="http://cross-intermine-search-tool.apps.intermine.org/#/?search=diabetes">diabetes</a>.
+  </p>
+</div>
+
+<script>
+  var searchForm = document.getElementById("crossInterMineSearch"),
+    url = "http://cross-intermine-search-tool.herokuapp.com/#/";
+  searchForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var searchTerm = e.target.search.value;
+    window.open(url + "?search=" + e.target.search.value, "_blank");
+  });
+</script>
+
         </div>
+
     </main>
 
     <footer>
@@ -477,6 +447,8 @@ imtables.loadDash(
         <svg class="icon icon-linkout">
                 <use xlink:href="http://intermine.org/images/symbol-defs.svg#icon-externallink"></use></svg>
     </a></li>
+    <li><a href="http://intermine.org/contributing">Contributing guidelines</a></li>
+
 </ul>
 
         </div>

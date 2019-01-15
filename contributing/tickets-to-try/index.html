@@ -152,8 +152,26 @@
 </header>
 
     <main>
-      <h2>InterMine Community Contributors</h2>
-      
+      <h2>Contributing - tickets to try</h2>
+      <!-- Include stylesheet -->
+
+<p><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/first-ticket-finder@v1.1.0/style.css" /></p>
+
+<!-- Include a link to ui.js-->
+
+<script src="https://cdn.jsdelivr.net/npm/first-ticket-finder@v1.1.0/src/ui.js">
+</script>
+
+<p>Interested in helping out? Here are some of the issues we&rsquo;re looking for help with. Please read <a href="/contributing/guidelines">our contributing guidelines</a> first!.</p>
+
+<!-- create a div to populate with issues -->
+
+<div id="intermineIssues"></div>
+
+<script>
+  OpenTagGrabber.init("intermineIssues","http://tag-grabber.apps.intermine.org/issues");
+</script>
+
 
     </main>
 
