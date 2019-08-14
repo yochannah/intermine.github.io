@@ -92,11 +92,6 @@
   </url>
   
   <url>
-    <loc>http://intermine.org/credits/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://intermine.org/developers/developerdocs/</loc>
   </url>
   
@@ -146,11 +141,6 @@
   </url>
   
   <url>
-    <loc>http://intermine.org/mobile-apps/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://intermine.org/publications/</loc>
   </url>
   
@@ -160,11 +150,6 @@
   
   <url>
     <loc>http://intermine.org/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://intermine.org/tutorials/</loc>
     <priority>0</priority>
   </url>
   
